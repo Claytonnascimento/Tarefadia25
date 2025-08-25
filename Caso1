@@ -1,0 +1,20 @@
+temperaturas = []
+for i in range(7):
+    temp = float(input(f"Digite a temperatura do dia {i+1}: "))
+    temperaturas.append(temp)
+
+media = sum(temperaturas) / len(temperaturas)
+
+mais_quente = max(temperaturas)
+dia_mais_quente = temperaturas.index(mais_quente) + 1
+
+mais_frio = min(temperaturas)
+dia_mais_frio = temperaturas.index(mais_frio) + 1
+
+dias_acima_media = sum(1 for t in temperaturas if t > media)
+
+print("\n--- Resultados ---")
+print(f"Média da semana: {media:.2f}°C")
+print(f"Dia mais quente: Dia {dia_mais_quente} com {mais_quente}°C")
+print(f"Dia mais frio: Dia {dia_mais_frio} com {mais_frio}°C")
+print(f"Dias acima da média: {dias_acima_media}")
