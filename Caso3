@@ -1,0 +1,16 @@
+pares = []
+impares = []
+
+print("Digite 10 números inteiros:")
+
+for i in range(10):
+    numero = int(input(f"Digite o {i+1}º número: "))
+    
+    if numero % 2 == 0:
+        pares.append(numero)
+    else:
+        impares.append(numero)
+
+print("\n--- Resultados ---")
+print(f"Números pares digitados ({len(pares)}): {pares}")
+print(f"Números ímpares digitados ({len(impares)}): {impares}")
