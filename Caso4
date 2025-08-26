@@ -1,0 +1,30 @@
+vendas = [
+    {"nome": "iphone", "preco": 1200},
+    {"nome": "carregador", "preco": 200},
+    {"nome": "tv", "preco": 3500},
+    {"nome": "mouse", "preco": 150},
+    {"nome": "computador", "preco": 4200},
+    {"nome": "tablet", "preco": 700}]
+
+print("=== Sistema de Vendas da Loja ===")
+print("Produtos já cadastrados no sistema:\n")
+for item in vendas:
+    print(f"- {item['nome']} : R$ {item['preco']:.2f}")
+
+total = sum(item["preco"] for item in vendas)
+
+mais_caro = max(vendas, key=lambda x: x["preco"])
+mais_barato = min(vendas, key=lambda x: x["preco"])
+
+print("\n=== Relatório de Vendas ===")
+print(f"Total arrecadado: R$ {total:.2f}")
+print(f"Produto mais caro: {mais_caro['nome']} (R$ {mais_caro['preco']:.2f})")
+print(f"Produto mais barato: {mais_barato['nome']} (R$ {mais_barato['preco']:.2f})")
+
+consulta = input("\nDigite o nome de um produto para verificar se foi vendido: ").strip().lower()
+encontrados = [item for item in vendas if item["nome"].lower() == consulta]
+
+if encontrados:
+    print(f"O produto '{consulta}' foi vendido {len(encontrados)} vez(es).")
+else:
+    print(f"O produto '{consulta}' não foi vendido hoje.")
